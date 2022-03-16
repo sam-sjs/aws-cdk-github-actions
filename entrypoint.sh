@@ -63,6 +63,8 @@ function installPipRequirements(){
 function runCdk(){
 	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} ${*} \"${INPUT_CDK_STACK}\""
 	set -o pipefail
+    echo "--------------INPUTS----------------"
+    echo ${*}
 	cdk ${INPUT_CDK_SUBCOMMAND} ${*} "${INPUT_CDK_STACK}" 2>&1 | tee output.log
 	exitCode=${?}
 	set +o pipefail
